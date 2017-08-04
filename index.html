@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>连连看</title>
+	</head>
+	<link rel="stylesheet" href="css/style.css" />
+	<body>
+		<div id="game-frame">
+			<div id="show">
+				&nbsp;得分：<span>0</span>
+				&nbsp;&nbsp;&nbsp;&nbsp;剩余时间：<label>--</label>
+				<button onclick="start()">开始</button>
+			</div>
+			<ul id="blocks">
+				
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/script.js" ></script>
+	<script>
+		var btn,score,time,timer;
+		window.onload = function(){
+			btn = document.getElementsByTagName('button')[0];
+			score = document.getElementsByTagName('span')[0];
+			time = document.getElementsByTagName('label')[0];
+		}
+		function start(){
+			time.innerHTML = '--';
+			timer && clearInterval(timer);
+			btn.innerHTML = '重新开始';
+			var s = 0;
+			g().start(600,10).refresh(function(){
+				s+=2;
+				score.innerHTML = s;
+				if(s === 100){
+					stopGame();
+				}
+			});
+			var t = 100;
+			timer = setInterval(function(){
+				time.innerHTML = --t;
+				if(!t){
+					stopGame();
+				}
+			},1000);
+		}
+		
+		function stopGame(){
+			clearInterval(timer);
+			g().over();
+		}
+	</script>
+</html>

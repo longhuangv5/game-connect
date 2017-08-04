@@ -1,0 +1,43 @@
+html,body{
+	padding: 0px;
+	margin: 0px;
+}
+
+#game-frame{
+	position: relative;
+	width: 600px;
+	height: 600px;
+	margin: 30px auto;
+	background-color: white;
+	border: 12px solid gainsboro;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: url(../img/bg2.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+div#show{
+	position: absolute;
+	padding: 5px;
+	width: 100%;
+	color: white;
+}
+
+#show > button{
+	position: absolute;
+	right: 15px;
+}
+
+ul#blocks{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+ul#blocks > li{
+	float: left;
+	background-image: url(../img/types.png);
+}
+
+
